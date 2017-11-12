@@ -4,14 +4,16 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
         <title>Favidyn</title>
-        <link rel="shorctut icon" type="image/x-icon" href="favicons/fav-active.ico"/>
+        <link rel="shorctut icon" type="image/x-icon" href="favicons/fav-default.ico"/>
         
     </head>
     <body bgcolor="#000000">
-        <button onclick="setFaviconError('error')">Set error-favicon</button>
+        <button onclick="setFavicon('active')">Set active-favicon</button>
+        <button onclick="setFavicon('error')">Set error-favicon</button>
+        <button onclick="setFavicon()">Set default-favicon</button>
         
         <script>
-function setFaviconError(favtype){
+function setFavicon(favtype){
     var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
     link.type = 'image/x-icon';
     link.rel = 'shortcut icon';
@@ -19,9 +21,11 @@ function setFaviconError(favtype){
         case 'error':
             link.href = 'favicons/fav-error.ico';
             break;
-        
+            case 'active':
+            link.href= 'favicons/fav-active.ico';
+            break;
         default:
-            
+            link.href = 'favicons/fav-default.ico';
     }
     document.getElementsByTagName('head')[0].appendChild(link);
 }
