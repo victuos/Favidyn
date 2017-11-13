@@ -3,30 +3,12 @@
     <head>
         <title>Favidyn</title>
         <link rel="shorctut icon" type="image/x-icon" href="favicons/fav-default.ico"/>
+        <script  type="text/javascript" src="favidyn.js"></script>
     </head>
     <body bgcolor="#002b36">
         <button onclick="setFavicon('active')">Set active-favicon</button>
         <button onclick="setFavicon('error')">Set error-favicon</button>
         <button onclick="setFavicon()">Set default-favicon</button>
-
-        <script>
-function setFavicon(favtype){
-    var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-    link.type = 'image/x-icon';
-    link.rel = 'shortcut icon';
-    switch (favtype) {
-        case 'error':
-            link.href = 'favicons/fav-error.ico';
-            break;
-        case 'active':
-            link.href= 'favicons/fav-active.ico';
-            break;
-        default:
-            link.href = 'favicons/fav-default.ico';
-    }
-    document.getElementsByTagName('head')[0].appendChild(link);
-}
-        </script>
     </body>
 
 </html>
